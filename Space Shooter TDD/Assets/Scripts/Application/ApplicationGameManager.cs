@@ -34,7 +34,7 @@ namespace SpaceShooter
         void Awake()
         {
             Utils.IsDebugEnable = true;
-            Utils.Log("Welcome you in WeatherX...");
+            Utils.Log("Welcome you in SpaceShooter...");
         }
     }
 }

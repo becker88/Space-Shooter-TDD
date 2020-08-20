@@ -34,6 +34,9 @@ namespace SpaceShooter
         private float tiltPlayerBody = 3.0f;
 
         public GameObject laserShot;
+        public GameObject explosion;
+        public GameObject playerExplosion;
+
         public Transform shotSpawn;
 
 

@@ -34,12 +34,6 @@ namespace SpaceShooter
         public Rigidbody boltRigidbody;
         private float destroyTime = 1.0f;
 
-        //Start is called before the first frame update
-        void Start()
-        {
-            boltRigidbody.velocity = transform.forward * app.model.LaserSpeed;
-        }
-
         /// <summary>
         /// To Launch the Laser Bolt
         /// </summary>
@@ -52,9 +46,9 @@ namespace SpaceShooter
         /// <summary>
         /// Auto Destroy Laser Bolt
         /// </summary>
-        private void OnDestroy()
-        {
-            Destroy(this.gameObject, destroyTime);
-        }
+        //private void OnDestroy()
+        //{
+        //    Destroy(this.gameObject, destroyTime);
+        //}
     }
 }
