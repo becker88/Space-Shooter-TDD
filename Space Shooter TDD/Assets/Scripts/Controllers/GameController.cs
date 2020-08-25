@@ -28,10 +28,18 @@ namespace SpaceShooter
     /// </summary>
     public class GameController : Controller<ApplicationGameManager>
     {
+
+        public Vector3 spawnValues;
+        public int hazardCount;
+        public float spawnWait;
+        public float startWait;
+        public float waveWait;
+
+
         // Start is called before the first frame update
         void Start()
         {
-
+            StartCoroutine("SpawnWaves");
         }
 
         // Update is called once per frame
@@ -49,6 +57,33 @@ namespace SpaceShooter
         }
 
 
+        /// <summary>
+        /// Spawn Hazards
+        /// </summary>
+        IEnumerator SpawnWaves()
+        {
+            yield return new WaitForSeconds(startWait);
+            while (true)
+            {
+                for (int i = 0; i < hazardCount; i++)
+                {
+                    Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                    Quaternion spawnRotation = Quaternion.identity;
+                    GameObject hazardsPrefab = Instantiate(app.model.hazard, spawnPosition, spawnRotation);
+                    hazardsPrefab.transform.SetParent(app.model.hazardSpawn);
+                    yield return new WaitForSeconds(spawnWait);
+                }
+                yield return new WaitForSeconds(waveWait);
+            }
+        }
+
+        public void SpawnHazards()
+        {
+            Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+            Quaternion spawnRotation = Quaternion.identity;
+            GameObject hazardsPrefab = Instantiate(app.model.hazard, spawnPosition, spawnRotation);
+            hazardsPrefab.transform.SetParent(app.model.hazardSpawn);
+        }
         /// <summary>
         /// Handle notifications from the application.
         /// </summary>

@@ -30,6 +30,8 @@ namespace SpaceShooter
     /// </summary>
     public class Astroid : View<ApplicationGameManager>
     {
+        public Rigidbody boltRigidbody;
+        private float destroyTime = 1.0f;
 
         public float tumble;
         public float speed;
@@ -38,8 +40,9 @@ namespace SpaceShooter
         // Start is called before the first frame update
         void Start()
         {
-            GetComponent<Rigidbody>().angularVelocity = Random.insideUnitSphere * tumble;
-            GetComponent<Rigidbody>().velocity = transform.forward * speed;
+            boltRigidbody.angularVelocity = Random.insideUnitSphere * tumble;
+            boltRigidbody.velocity = transform.forward * speed;
+
         }
 
         // Update is called once per frame

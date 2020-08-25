@@ -34,7 +34,7 @@ namespace SpaceShooter
         public Boundary boundary;
         public float fireRate;
         private float nextFire;
-
+        public AudioSource playLaserAudio;
 
         /// <summary>
         /// To Control and Move Player
@@ -70,6 +70,7 @@ namespace SpaceShooter
                 GameObject shotPrefab = Instantiate(app.model.laserShot, app.model.shotSpawn.position, app.model.shotSpawn.rotation) as GameObject;
                 shotPrefab.transform.SetParent(app.model.shotSpawn);
                 shotPrefab.GetComponent<BoltMover>().LoadBolt(app.model.LaserSpeed);
+                playLaserAudio.Play();
             }
         }
     }

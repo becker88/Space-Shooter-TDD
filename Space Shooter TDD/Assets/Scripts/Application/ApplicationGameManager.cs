@@ -29,12 +29,19 @@ namespace SpaceShooter
     /// </summary>
     public class ApplicationGameManager : BaseApplication<GameModel, GameView, GameController>
     {
+        private GameController m_gmc;                    // Register Loader View
+
+        /// <summary>
+        /// Reference to the Player View.
+        /// </summary>
+        public GameController gameCtrl { get { return m_gmc = Assert<GameController>(m_gmc); } }
 
         //Call before Start
         void Awake()
         {
             Utils.IsDebugEnable = true;
             Utils.Log("Welcome you in SpaceShooter...");
+            
         }
     }
 }

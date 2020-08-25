@@ -37,7 +37,11 @@ namespace SpaceShooter
         public GameObject explosion;
         public GameObject playerExplosion;
 
+        public GameObject hazard;
+        
+
         public Transform shotSpawn;
+        public Transform hazardSpawn;
 
 
         /// <summary>
