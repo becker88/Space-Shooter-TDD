@@ -66,7 +66,6 @@ namespace SpaceShooter
             if (Input.GetButton("Fire1") && Time.time > nextFire)
             {
                 nextFire = Time.time + fireRate;
-                //Instantiate(app.model.laserShot, app.model.shotSpawn.position, app.model.shotSpawn.rotation).GetComponent<BoltMover>().LoadBolt(app.model.LaserSpeed);
                 GameObject shotPrefab = Instantiate(app.model.laserShot, app.model.shotSpawn.position, app.model.shotSpawn.rotation) as GameObject;
                 shotPrefab.transform.SetParent(app.model.shotSpawn);
                 shotPrefab.GetComponent<BoltMover>().LoadBolt(app.model.LaserSpeed);
